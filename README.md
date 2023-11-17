@@ -45,17 +45,29 @@ To use this setup, follow these steps:
 
 6. Connect to your PostgreSQL database using the credentials you configured. The database is accessible on the default PostgreSQL port `5432`.
 
+## Adding PostgreSQL Server in pgAdmin
+
+To manually add the PostgreSQL server in pgAdmin, follow these steps:
+
+1. Open pgAdmin in your web browser (`http://localhost:5050`) and log in.
+
+2. Right-click on ‘Servers’ in the left-hand pane and select ‘Create’ -> ‘Server…’.
+
+3. In the 'Create Server' window, give your server a name (e.g., `Local Postgres`).
+
+4. Switch to the 'Connection' tab, enter `postgres` for 'Hostname/address', and fill in the username and password you set in the Docker configuration.
+
+5. Click 'Save'. You should now be able to access your PostgreSQL databases in pgAdmin.
+
 ## Customization
 
-- **PostgreSQL Environment Variables**: Change `POSTGRES_PASSWORD`, `POSTGRES_USER`, and `POSTGRES_DB` in the `docker-compose.yml` file to your desired settings.
+- **Environment Variables**: Adjust PostgreSQL and pgAdmin settings in `docker-compose.yml`.
 
-- **pgAdmin Environment Variables**: Change `PGADMIN_DEFAULT_EMAIL` and `PGADMIN_DEFAULT_PASSWORD` in the `docker-compose.yml` file for your pgAdmin access.
-
-- **Data Persistence**: Modify the volume mapping under the `postgres` service in the `docker-compose.yml` file to your chosen local path for data persistence.
+- **Data Persistence**: Modify the volume mapping for PostgreSQL data in `docker-compose.yml`.
 
 ## Stopping the Services
 
-To stop the running services, execute:
+To stop the services, run:
 
 ```bash
 docker-compose down
@@ -63,7 +75,7 @@ docker-compose down
 
 ## Contributing
 
-Contributions to this project are welcome. Please fork the repository and submit a pull request with your changes or improvements.
+Contributions are welcome. Please fork the repository and submit pull requests with your changes.
 
 ## License
 
