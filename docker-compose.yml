@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_PASSWORD: your_password # Set your password
+      POSTGRES_USER: your_user # Set your user
+      POSTGRES_DB: your_db # Set your database name
+    volumes:
+      - ./your_local_db_path:/var/lib/postgresql/data # Set your local path
+    ports:
+      - "5432:5432"
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com # Set your email
+      PGADMIN_DEFAULT_PASSWORD: admin # Set your password
+    ports:
+      - "5050:80"
+    restart: always
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
